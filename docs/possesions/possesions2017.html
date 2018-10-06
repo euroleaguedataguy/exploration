@@ -1,0 +1,191 @@
+<html>
+<head>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.1.4/js/themes/sand-signika.js"></script>
+</head>
+<body>
+<div id="container" style="width:60%; height:800px;"></div>
+<script>
+
+
+    $(function () {
+    data = [
+        {
+            "year": 2017,
+            "code": "TEL",
+            "desc": "Maccabi FOX Tel Aviv",
+            "poss": 78.1379310345,
+            "color": "#FFF200"
+        },
+        {
+            "year": 2017,
+            "code": "CSK",
+            "desc": "CSKA Moscow",
+            "poss": 77.5588235294,
+            "color": "#002D74"
+        },
+        {
+            "year": 2017,
+            "code": "MAD",
+            "desc": "Real Madrid",
+            "poss": 76.7142857143,
+            "color": "#C6D8E9"
+        },
+        {
+            "year": 2017,
+            "code": "BAS",
+            "desc": "KIROLBET Baskonia Vitoria Gasteiz",
+            "poss": 76.2666666667,
+            "color": "#A10C30"
+        },
+        {
+            "year": 2017,
+            "code": "OLY",
+            "desc": "Olympiacos Piraeus",
+            "poss": 76.03125,
+            "color": "#E30613"
+        },
+        {
+            "year": 2017,
+            "code": "MIL",
+            "desc": "AX Armani Exchange Olimpia Milan",
+            "poss": 76,
+            "color": "#FA353B"
+        },
+        {
+            "year": 2017,
+            "code": "BAR",
+            "desc": "FC Barcelona Lassa",
+            "poss": 75.8518518519,
+            "color": "#DE833F"
+        },
+        {
+            "year": 2017,
+            "code": "MAL",
+            "desc": "Unicaja Malaga",
+            "poss": 75.3846153846,
+            "color": "#4F994C"
+        },
+        {
+            "year": 2017,
+            "code": "PAN",
+            "desc": "Panathinaikos Superfoods Athens",
+            "poss": 75.2666666667,
+            "color": "#05713A"
+        },
+        {
+            "year": 2017,
+            "code": "ZAL",
+            "desc": "Zalgiris Kaunas",
+            "poss": 74.9705882353,
+            "color": "#156736"
+        },
+        {
+            "year": 2017,
+            "code": "IST",
+            "desc": "Anadolu Efes Istanbul",
+            "poss": 74.9642857143,
+            "color": "#1D3357"
+        },
+        {
+            "year": 2017,
+            "code": "KHI",
+            "desc": "Khimki Moscow Region",
+            "poss": 74.8666666667,
+            "color": "#E8CA38"
+        },
+        {
+            "year": 2017,
+            "code": "BAM",
+            "desc": "Brose Bamberg",
+            "poss": 74.7307692308,
+            "color": "#D2325E"
+        },
+        {
+            "year": 2017,
+            "code": "RED",
+            "desc": "Crvena Zvezda mts Belgrade",
+            "poss": 74.2592592593,
+            "color": "#E96661"
+        },
+        {
+            "year": 2017,
+            "code": "ULK",
+            "desc": "Fenerbahce Dogus Istanbul",
+            "poss": 72.9393939394,
+            "color": "#EED50B"
+        },
+        {
+            "year": 2017,
+            "code": "PAM",
+            "desc": "Valencia Basket",
+            "poss": 72.92,
+            "color": "#F47920"
+        }
+    ]
+
+        processed_json = []
+        keys = []
+        for (i = 0; i < data.length; i++){
+            keys.push(data[i]["desc"]);
+            processed_json.push({ y: data[i]["poss"], color: data[i]["color"]});
+        }
+
+    var myChart = Highcharts.chart('container', {
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Euroleague 2017-2018: Possesions per Game'
+        },
+        xAxis: {
+            type: 'category',
+            allowDecimals: false,
+            title: {
+                text: null
+            },
+            labels:{
+              style:{
+                  fontWeight: "bold",
+                  fontSize:'18px'
+              }
+            },
+            categories : keys
+        },
+        yAxis: {
+            min: 65.0,
+            max: 80.0
+        },
+        tooltip: {
+            valueDecimals: 2
+        },
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    align: 'left',
+                    format: "{point.y:.2f}",
+                },
+                pointPadding: 0.1,
+                groupPadding: 0
+            }
+        },
+        series: [{
+            showInLegend: false,
+            name: 'Possesions',
+            data: processed_json}]
+    });
+        myChart.yAxis[0].update({
+            labels: {
+                enabled: false
+            },
+            title: {
+                text: null
+            }
+        });
+
+    });
+</script>
+</body>
+</html>
