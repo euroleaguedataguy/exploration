@@ -5,7 +5,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.1.4/js/themes/sand-signika.js"></script>
 </head>
 <body>
-<div id="container" style="width:60%; height:800px;"></div>
+<div id="container" style="height:900px; width:700px;"></div>
 <script>
 
 
@@ -137,7 +137,14 @@
             type: 'bar'
         },
         title: {
-            text: 'Euroleague 2017-2018: Possesions per Game',
+            text: 'Euroleague 2017-2018',
+            style : {
+                fontWeight: "bold",
+                fontSize:'24px'
+            }
+        },
+        subtitle: {
+            text: 'Possessions Per Game',
             style : {
                 fontWeight: "bold",
                 fontSize:'24px'
@@ -177,7 +184,7 @@
         },
         series: [{
             showInLegend: false,
-            name: 'Possesions',
+            name: 'Possessions',
             data: processed_json}]
     });
         myChart.yAxis[0].update({
